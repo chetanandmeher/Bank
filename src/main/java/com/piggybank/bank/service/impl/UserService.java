@@ -10,6 +10,9 @@ import com.piggybank.bank.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 // mark @Service to denote this is service layer
 @Service
@@ -25,15 +28,19 @@ public class UserService implements IUserService {
 
     // method to get all the users in database
     @Override
-    public UserResponseDto getAllUsers() {
+    public List<UserResponseDto> getAllUsers() {
+        // get the list of all users from the database
         Iterable<User> users = userRepository.findAll();
         // convert user list to list of UserResponseDto
-
-        return null;
+        List<UserResponseDto> userResponseDtoList = new ArrayList<UserResponseDto>();
+        for (User user : users) {
+            userResponseDtoList.add(convertUserToUserResponseDto(user));
+        }
+        return userResponseDtoList;
     }
 
     private UserResponseDto convertUserToUserResponseDto(User user) {
-        UserResponseDto.builder()
+        return UserResponseDto.builder()
                 .id(user.getId())
                 .fullName(user.getFirstName() + user.getMiddleName() + user.getLastName())
                 .username(user.getUsername())
