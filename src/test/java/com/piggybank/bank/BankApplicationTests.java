@@ -1,10 +1,10 @@
-package com.meherbank.meher_Bank;
+package com.piggybank.bank;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MeherBankApplicationTests {
+class BankApplicationTests {
 
 	@Test
 	void contextLoads() {
