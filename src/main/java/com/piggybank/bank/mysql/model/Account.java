@@ -1,10 +1,18 @@
 package com.piggybank.bank.mysql.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Builder
 // make this class with Entity annotation to show it as a table connected to database
 @Entity
 @Table(name = "accounts")
@@ -27,10 +35,10 @@ public class Account {
     private String type;
 
     @Column(name = "rate_of_interest")
-    private DecimalFormat rateOfInterest;
+    private Float rateOfInterest;
 
     @Column(name = "balance")
-    private DecimalFormat balance;
+    private Float balance;
 
     @Column(name="created_by")
     private Integer createdBy;

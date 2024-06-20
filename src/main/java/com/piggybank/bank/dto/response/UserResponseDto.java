@@ -18,5 +18,5 @@ public class UserResponseDto {
 
     private Integer id;
     private String username;
-    private String fullName;
+    private String firstName;
 }
